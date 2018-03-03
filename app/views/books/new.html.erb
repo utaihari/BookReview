@@ -1,0 +1,25 @@
+<h1>新規登録</h1>
+
+<%= form_for @book do |f| %>
+<div class="field">
+	<%= f.label :isbn %><br>
+	<%= f.text_field :isbn %>
+</div>
+<div class="field">
+	<%= f.label :title %><br>
+	<%= f.text_field :title %>
+</div>
+<div class="field">
+	<%= f.label :price, "価格"%><br>
+	<%= f.number_field :price %>
+</div>
+<div class="field">
+	<%= f.label :publish, "出版社" %><br>
+	<%= f.text_field :publish %>
+</div>
+<div class="field">
+	<%= f.label :published, "出版日" %><br>
+	<%= f.date_field :published %>
+</div>
+<%= f.submit "登録", disable_with: '登録中...' %>
+<% end %>

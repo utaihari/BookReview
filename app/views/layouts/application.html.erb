@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BookReview</title>
+	<%= csrf_meta_tags %>
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+	<% flash.each do |key, value| %>
+	<% if key == 'alert' || key == 'success' || key == 'failed' %>
+	<div class="alert alert-<%= key %>">
+		<%= value %>
+	</div>
+	<% end %>
+	<% end %>
+	<%= yield %>
+</body>
+</html>

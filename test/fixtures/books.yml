@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  isbn: 978-4-488-02430-7
+  title: 平井の本
+  price: 31
+  publish: 平井の印刷会社
+  published: 2018-02-04
+  dl: false
+
+two:
+  isbn: 978-4-7741-8946-8
+  title: Ruby on Rails 5 アプリケーションプログラミング
+  price: 3000
+  publish: 技術評論社
+  published: 2017-04-14
+  dl: false
+
+<% 0.upto(9) do | n | %>
+book<%= n %>:
+  isbn: 978-4-7741-5878-<%= n %>
+  title: 書名 タイトル <%= n %>
+  price: <%= 1000 + n %>
+  publish: 出版社 <%= n %>
+  published: 2016-12-31
+  dl: false
+<% end %>

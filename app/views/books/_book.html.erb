@@ -1,0 +1,10 @@
+<div class="book">
+	<div class="book-isbn"><%= book.isbn %></div>
+	<div class="book-title"><%= book.title %></div>
+	<div class="book-price"><%= book.price %></div>
+	<div class="book-publish"><%= book.publish %></div>
+	<div class="book-published"><%= book.published %></div>
+	<%= link_to "詳細", book, class: "btn btn-info" %>
+	<%= link_to "更新", edit_book_path(book.id) , class: "btn btn-primary"%>
+	<%= link_to "削除", book, method: :delete, data: { confirm: '本当に削除しますか'}, class: "btn btn-danger" %>
+</div>
