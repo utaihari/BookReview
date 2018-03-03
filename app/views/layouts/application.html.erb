@@ -9,6 +9,9 @@
 </head>
 
 <body>
+	<nav class="navbar navbar-default">
+		<%= link_to "本棚", books_path, class: "navbar-brand" %>
+	</nav>
 	<% flash.each do |key, value| %>
 	<% if key == 'alert' || key == 'success' || key == 'failed' %>
 	<div class="alert alert-<%= key %>">

@@ -1,6 +1,5 @@
-<h1>本棚</h1>
 <div id='book-list'>
-<%= render @books %>
+<%= render @books, type: :simple %>
 </div>
 
 <%= link_to "新規登録", new_book_path %>

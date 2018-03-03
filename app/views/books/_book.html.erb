@@ -1,10 +1,30 @@
-<div class="book">
-	<div class="book-isbn"><%= book.isbn %></div>
+<%= type = :details if type.nil? %>
+<div class="book <%= "book-#{type}" %>">
 	<div class="book-title"><%= book.title %></div>
-	<div class="book-price"><%= book.price %></div>
-	<div class="book-publish"><%= book.publish %></div>
-	<div class="book-published"><%= book.published %></div>
-	<%= link_to "詳細", book, class: "btn btn-info" %>
-	<%= link_to "更新", edit_book_path(book.id) , class: "btn btn-primary"%>
-	<%= link_to "削除", book, method: :delete, data: { confirm: '本当に削除しますか'}, class: "btn btn-danger" %>
+	<% if type == :details %>
+		<div class="book-detail">
+	<% else %>
+		<div class="book-detail" style="display: none;">
+	<% end %>
+
+		<div class="book-isbn">ISBN:<%= book.isbn %></div>
+		<div class="book-price">値段:<%= book.price %></div>
+		<div class="book-publish">出版社:<%= book.publish %></div>
+		<div class="book-published">出版日：<%= book.published %></div>
+
+		<% if type == :details %>
+		<% if !book.reviews.blank? %>
+		<div class="book-reviews">
+			<div>レビュー</div>
+			<% for review in book.reviews %>
+			<div class="book-review"><%= review.body %></div>
+			<% end %>
+		</div>
+		<% end %>
+		<% else %>
+		<%= link_to "詳細", book, class: "btn btn-info" %>
+		<% end %>
+		<%= link_to "更新", edit_book_path(book.id) , class: "btn btn-primary"%>
+		<%= link_to "削除", book, method: :delete, data: { confirm: '本当に削除しますか'}, class: "btn btn-danger" %>
+	</div>
 </div>
